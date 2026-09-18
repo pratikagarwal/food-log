@@ -120,6 +120,19 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+  <section class="day tab-panel" aria-labelledby="sep-18-heading">
+    <h2 id="sep-18-heading">Friday, September 18, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-taj-breakfast-egg-white-omelette-paneer-chilla"><div class="time">9:55 AM</div><div class="entry-body"><p class="item">Breakfast - 4-egg-white masala omelette, 1 toast, 1 paneer chilla, papaya (Taj Lands End, Mumbai)</p><p class="estimate">Estimate: ~30g protein, ~420-460 kcal</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+    </ol>
+    <div class="totals-block" aria-labelledby="sep-18-totals-heading">
+      <h2 id="sep-18-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~30g protein, ~420-460 kcal</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="day tab-panel" aria-labelledby="sep-17-heading">
     <h2 id="sep-17-heading">Thursday, September 17, 2026</h2>
     <ol class="entries">
@@ -127,7 +140,7 @@
           <li class="entry" data-dish="dish-paneer-tikka-capsicum-onion"><div class="time">9:35 AM</div><div class="entry-body"><p class="item">Paneer tikka with grilled capsicum and onion (home-packed bowl, eaten in the car to the airport)</p><p class="estimate">Estimate: ~20g protein, ~350-400 kcal</p><figure><img src="assets/paneer-tikka-capsicum-onion.jpg" alt="Paneer tikka with grilled capsicum and onion in a home-packed glass bowl"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
       <li class="entry" data-dish="dish-smoor-classic-matcha"><div class="time">10:50 AM</div><div class="entry-body"><p class="item">Classic matcha from Smoor (to go, at BLR airport)</p><p class="estimate">Estimate: ~3g protein, ~140 kcal (matcha latte baseline; usually oat milk, no sugar)</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
       <li class="entry" data-dish="dish-earth-cafe-tofu-scramble-soup"><div class="time">2:00 PM</div><div class="entry-body"><p class="item">Tofu scramble with gluten-free bread + broccoli pea soup (Earth Cafe, BKC Mumbai)</p><p class="estimate">Estimate: ~28-32g protein, ~550-630 kcal (restaurant meal)</p><figure><img src="assets/earth-cafe-broccoli-pea-soup.jpg" alt="Broccoli pea soup at Earth Cafe, BKC Mumbai"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
-      <li class="entry" data-dish="dish-bay-club-super-green-salad"><div class="time">5:30 PM</div><div class="entry-body"><p class="item">Bay Club super green salad, 140g - avocados, pistachios, asparagus, edamame (The Bay Club "Cafe To Go", Mumbai)</p><p class="estimate">308 kcal per the menu; estimated ~10g protein</p><p class="note">₹750</p><figure><img src="assets/1-bay-club-super-green-salad.jpg" alt="The Bay Club Cafe To Go menu showing the Bay Club super green salad"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-bay-club-super-green-salad"><div class="time">5:30 PM</div><div class="entry-body"><p class="item">Bay Club super green salad, 140g - avocados, pistachios, asparagus, edamame (The Bay Club "Cafe To Go", Mumbai)</p><p class="estimate">308 kcal per the menu; estimated ~10g protein</p><p class="note">₹750</p><figure><img src="assets/bay-club-super-green-salad.jpg" alt="The Bay Club Cafe To Go menu showing the Bay Club super green salad"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
     </ol>
     <div class="totals-block" aria-labelledby="sep-17-totals-heading">
       <h2 id="sep-17-totals-heading">Estimated totals</h2>
@@ -234,6 +247,7 @@
   // Canonical dish registry: one stable key per dish, shared across every day it appears on.
   // New dish? Add a line here, then use its key as data-dish on the day's entry.
   const DISHES = {
+    'dish-taj-breakfast-egg-white-omelette-paneer-chilla': '4-egg-white masala omelette, toast, paneer chilla and papaya',
     'dish-cosmix-cacao': 'Cosmix Fermented Yeast Protein shake (Indonesian Cacao)',
     'dish-paneer-tikka-capsicum-onion': 'Paneer tikka with grilled capsicum and onion',
     'dish-smoor-classic-matcha': 'Classic matcha from Smoor',
