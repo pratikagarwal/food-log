@@ -120,6 +120,20 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+  <section class="day tab-panel" aria-labelledby="sep-21-heading">
+    <h2 id="sep-21-heading">Monday, September 21, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-cosmix-cacao"><div class="time">9:13 AM</div><div class="entry-body"><p class="item">Cosmix Fermented Yeast Protein shake (Indonesian Cacao) in water</p><p class="estimate">26g protein, ~130 kcal</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-egg-whites-capsicum-onion"><div class="time">9:14 AM</div><div class="entry-body"><p class="item">Boiled egg whites (about 3) + stir-fried capsicum and onion</p><p class="estimate">Estimate: ~14g protein, ~150 kcal, ~4g sugar</p><figure><img src="assets/1-egg-whites-capsicum-onion.jpg" alt="Chopped boiled egg whites with stir-fried capsicum and onion in a glass container"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+    </ol>
+    <div class="totals-block" aria-labelledby="sep-21-totals-heading">
+      <h2 id="sep-21-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~40g protein, ~280 kcal, ~4g sugar</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="day tab-panel" aria-labelledby="sep-20-heading">
     <h2 id="sep-20-heading">Sunday, September 20, 2026</h2>
     <ol class="entries">
@@ -303,6 +317,7 @@
     'dish-lavonne-honey-ginger-matcha': 'Honey ginger matcha (Lavonne)',
     'dish-dragon-fruit': 'Whole dragon fruit',
     'dish-indigo-bhatti-paneer-salad': 'Bhatti Paneer Salad (IndiGo)',
+    'dish-egg-whites-capsicum-onion': 'Boiled egg whites + stir-fried capsicum and onion',
     'dish-cosmix-cacao': 'Cosmix Fermented Yeast Protein shake (Indonesian Cacao)',
     'dish-paneer-tikka-capsicum-onion': 'Paneer tikka with grilled capsicum and onion',
     'dish-smoor-classic-matcha': 'Classic matcha from Smoor',
