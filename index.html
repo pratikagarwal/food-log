@@ -128,11 +128,12 @@
       <li class="entry" data-dish="dish-cafe-hot-matcha-salted-caramel"><div class="time">2:37 PM</div><div class="entry-body"><p class="item">Afternoon: hot matcha with slight salted caramel (cafe)</p><p class="estimate">Estimate: ~5g protein, ~120 kcal</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
       <li class="entry" data-dish="dish-cosmix-cacao"><div class="time">5:00 PM</div><div class="entry-body"><p class="item">Cosmix protein shake, 1 scoop (38g) - second of the day</p><p class="estimate">Estimate: ~24g protein, ~138 kcal</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
       <li class="entry" data-dish="dish-pink-guava-pomegranate"><div class="time">8:10 PM</div><div class="entry-body"><p class="item">Evening snack: half pink guava + 1 cup pomegranate seeds</p><p class="estimate">Estimate: ~4g protein, ~215 kcal, ~30g sugar</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-veg-jalfrezi-tawa-paneer-veg-raita"><div class="time">8:15 PM</div><div class="entry-body"><p class="item">Dinner: veg jalfrezi (1 serving) + roasted low-fat tawa paneer (1 cup) + veg raita (1 cup)</p><p class="estimate">Estimate: ~35g protein, ~520 kcal, ~16g sugar</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
     </ol>
     <div class="totals-block" aria-labelledby="sep-22-totals-heading">
       <h2 id="sep-22-totals-heading">Estimated totals</h2>
       <div class="totals">
-        <div class="total"><strong>Day total</strong><span>~78g protein, ~1,135 kcal, ~30g sugar</span></div>
+        <div class="total"><strong>Day total</strong><span>~113g protein, ~1,655 kcal, ~46g sugar</span></div>
       </div>
     </div>
   </section>
@@ -327,6 +328,7 @@
   // Canonical dish registry: one stable key per dish, shared across every day it appears on.
   // New dish? Add a line here, then use its key as data-dish on the day's entry.
   const DISHES = {
+    'dish-veg-jalfrezi-tawa-paneer-veg-raita': 'Veg jalfrezi + roasted low-fat tawa paneer + veg raita',
     'dish-egg-whites-whole-boiled-egg': '3 egg whites + 1 whole boiled egg',
     'dish-cafe-hot-matcha-salted-caramel': 'Hot matcha with slight salted caramel (cafe)',
     'dish-beetroot-tikki-green-chutney-tomato-sabzi': 'Beetroot tikki with green chutney and tomato-based sabzi',
