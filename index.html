@@ -82,13 +82,43 @@
   #daily-trend .cal-dot { fill:var(--green); }
   #daily-trend .protein-dot { fill:var(--amber); }
   @media (max-width:600px) { .trend-section { padding-left:22px; padding-right:22px; } .trend-head { display:block; } .trend-note { margin-top:3px; } }
+
+  /* Recipe navigation and cards */
+  .header-row { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+  .menu-wrap { position:relative; flex:none; }
+  .menu-toggle { width:44px; height:44px; display:grid; place-items:center; border:1px solid var(--line); border-radius:11px; background:#fff; color:var(--green); font-size:1.35rem; cursor:pointer; }
+  .menu-toggle:hover, .menu-toggle[aria-expanded="true"] { background:var(--green-soft); }
+  .menu-toggle:focus-visible, .menu-panel button:focus-visible, .recipe-index a:focus-visible { outline:3px solid rgba(39,103,73,.3); outline-offset:2px; }
+  .menu-panel { position:absolute; right:0; top:50px; width:210px; z-index:10; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 25px rgba(31,42,36,.14); padding:6px; }
+  .menu-panel[hidden] { display:none; }
+  .menu-panel button { display:block; width:100%; min-height:44px; text-align:left; border:0; border-radius:8px; background:transparent; padding:8px 12px; font:inherit; font-weight:600; color:var(--ink); cursor:pointer; }
+  .menu-panel button:hover { background:var(--green-soft); }
+  .recipes-intro { color:var(--muted); margin:0 0 18px; }
+  .recipe-index { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
+  .recipe-index a { color:var(--green); background:var(--green-soft); text-decoration:none; border-radius:99px; padding:7px 12px; font-weight:650; font-size:.88rem; }
+  .recipe-group { margin-top:24px; }
+  .recipe-group h3 { margin:0 0 10px; font-size:1.08rem; }
+  .recipe-card { border:1px solid var(--line); border-radius:12px; margin:9px 0; background:var(--cream); overflow:hidden; }
+  .recipe-card summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 16px; cursor:pointer; list-style:none; }
+  .recipe-card summary::-webkit-details-marker { display:none; }
+  .recipe-card summary::after { content:'+'; font-size:1.35rem; color:var(--green); flex:none; }
+  .recipe-card[open] summary::after { content:'−'; }
+  .recipe-title { display:block; font-weight:700; line-height:1.3; }
+  .recipe-nutrition { display:block; color:var(--muted); font-size:.86rem; margin-top:3px; }
+  .recipe-body { padding:0 16px 16px; border-top:1px solid var(--line); }
+  .recipe-body p { margin:12px 0 0; font-size:.93rem; }
+  @media (max-width:600px) { .recipe-card summary { padding:14px; } .menu-panel { right:0; } }
 </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Food Log</h1>
-    <p class="name">Pratik Agarwal</p>
+        <div class="header-row"><div><h1>Food Log</h1>
+    <p class="name">Pratik Agarwal</p></div>
+    <div class="menu-wrap"><button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="menu-panel">☰</button>
+      <nav class="menu-panel" id="menu-panel" aria-label="Food log navigation" hidden>
+        <button type="button" data-target="latest">Latest day</button><button type="button" data-target="dishes">Dishes</button><button type="button" data-target="recipes">Recipes</button>
+      </nav></div></div>
   </header>
 
   <section aria-labelledby="context-heading">
@@ -333,6 +363,13 @@
     <ul class="dishes-list" id="dishes-list"></ul>
   </section>
 
+  <section class="tab-panel recipes-panel" aria-labelledby="recipes-heading">
+    <h2 id="recipes-heading">Recipes</h2>
+    <p class="recipes-intro">From this week's meal plan and familiar favorites. Tap a recipe for ingredients and a quick method. Nutrition is an estimate per serving, not a replacement for a weighed recipe.</p>
+    <nav class="recipe-index" id="recipe-index" aria-label="Recipe categories"></nav>
+    <div id="recipe-groups"></div>
+  </section>
+
   <footer>Food and nutrition estimates are approximate.</footer>
 </main>
 
@@ -518,6 +555,30 @@
     .then(rows => { rows.forEach(row => { ratings[row.meal_key] = row.rating; }); localStorage.setItem(storageKey, JSON.stringify(ratings)); Object.keys(ratings).forEach(paintDish); })
     .catch(() => {});
 
+  // Curated recipes are separate from the canonical Dishes/rating registry.
+  const RECIPES = [["Shakes & breakfast", "Cosmix protein shake", "1 scoop (38g) Cosmix yeast protein powder; water; ice (optional)", "Shake powder with cold water until smooth.", "~138 kcal · ~24g protein"], ["Shakes & breakfast", "Greek yogurt, protein & banana smoothie", "½ cup Greek yogurt; ½ scoop protein powder; ½ banana; water; ice", "Blend until smooth. Adjust water to taste.", "~210 kcal · ~23g protein"], ["Shakes & breakfast", "Sattu chaas with Greek yogurt", "2 tbsp sattu; ¼ cup Greek yogurt; water; cumin; salt; mint", "Whisk sattu and yogurt with water until thin; season and chill.", "~135 kcal · ~9g protein"], ["Shakes & breakfast", "Pesarattu with egg whites", "½ cup soaked whole moong; ginger; green chilli; 2 egg whites; 1 tbsp coconut chutney", "Blend moong with spices. Spread as a dosa; pour egg whites over it and cook through. Serve with chutney.", "~230 kcal · ~18g protein"], ["Shakes & breakfast", "Mushroom-spinach omelet", "1 whole egg; 2 egg whites; mushrooms; spinach; pepper; ½ tsp oil", "Sauté vegetables, add beaten eggs and cook until set.", "~165 kcal · ~17g protein"], ["Shakes & breakfast", "Moong dal chilla with vegetables", "½ cup soaked moong; grated vegetables; ginger; coriander; mint chutney", "Blend moong into batter. Fold in vegetables; cook a large chilla on a lightly oiled pan.", "~230 kcal · ~14g protein"], ["Shakes & breakfast", "Moong dal idli with sambhar", "½ cup soaked moong; ginger; 1 cup vegetable sambhar; 2 egg whites", "Blend and steam the moong batter in idli moulds. Serve with warm vegetable sambhar and egg whites.", "~320 kcal · ~23g protein"], ["Shakes & breakfast", "Vegetable upma or poha", "½–¾ cup cooked upma or poha; peas; carrot; onion; mustard seeds; curry leaves", "Temper mustard and curry leaves in a little oil; cook vegetables and fold in cooked upma or rinsed poha.", "~210 kcal · ~6g protein"], ["Mains & bowls", "Lebanese crispy tofu with brown-rice tabbouleh", "150g firm tofu; ½ cup cooked brown rice; parsley; cucumber; tomato; lemon; chimichurri", "Pan-sear spiced tofu with little oil. Toss rice and chopped vegetables with herbs and lemon; spoon over chimichurri.", "~440 kcal · ~27g protein"], ["Mains & bowls", "Creamy crunchy chana-makhana salad", "½ cup cooked chana; 1 cup roasted makhana; cucumber; tomato; ¼ cup Greek yogurt; lemon", "Dry-roast makhana until crisp. Toss chana and vegetables with yogurt-lemon dressing; add makhana just before serving.", "~330 kcal · ~16g protein"], ["Mains & bowls", "Broccoli-pea soup & tofu scramble", "1 cup broccoli; ½ cup peas; 150g tofu; onion; tomato; turmeric; 1 slice gluten-free sourdough", "Simmer and blend broccoli and peas into soup. Crumble tofu with sautéed vegetables and spices; serve with toast.", "~410 kcal · ~30g protein"], ["Mains & bowls", "High-protein lauki muthiya plate", "1 cup grated lauki; ¼ cup chickpea flour; 1 tbsp Trunativ protein; spices; roasted vegetables; beetroot-yogurt dip", "Squeeze lauki, mix with flour and spices, shape and steam muthiya; lightly toast. Serve with roasted veg and yogurt dip.", "~350 kcal · ~22g protein"], ["Mains & bowls", "Quinoa fried rice with tofu & vegetables", "½ cup cooked quinoa; 150g tofu; 1½ cups mixed vegetables (no corn); ginger; soy or tamari", "Sear tofu. Stir-fry vegetables and ginger in little oil; add quinoa and tamari. Keep vegetables and tofu generous.", "~360 kcal · ~25g protein"], ["Mains & bowls", "Green goddess tikkis with peri-peri yogurt", "½ cup peas; ½ cup broccoli; 60g low-fat paneer; ¼ small sweet potato; ¼ cup Greek yogurt; peri-peri seasoning", "Mash peas, broccoli, paneer and sweet potato; form tikkis and pan-sear. Mix yogurt with seasoning for dipping.", "~345 kcal · ~24g protein"], ["Mains & bowls", "Weight-loss burrito bowl", "½ cup cooked quinoa; ½ cup rajma; 75g low-fat paneer; capsicum; red onion; 2 tbsp yogurt-nut sauce", "Sauté vegetables and paneer. Layer with quinoa and rajma; finish with yogurt-nut sauce. Skip brown rice.", "~490 kcal · ~31g protein"], ["Mains & bowls", "Moth, black dal & tofu curry", "½ cup cooked moth beans; ½ cup cooked black dal; 100g tofu; tomato; spices; 1 cup broccoli", "Simmer beans and tofu in a tomato-spice base. Steam or sauté broccoli separately with little oil.", "~420 kcal · ~29g protein"], ["Mains & bowls", "Mangodi, gavar & jowar-quinoa roti", "½ cup mangodi curry; 1 cup gavar sabzi; 1 small jowar-quinoa roti; ¼ cup Greek yogurt raita", "Simmer mangodi in tomato gravy; dry-cook gavar with spices. Serve with roti and unsweetened vegetable raita.", "~450 kcal · ~20g protein"], ["Mains & bowls", "Vegetable jalfrezi & tawa paneer", "1½ cups mixed vegetables; 100g low-fat paneer; tomato; spices; ½ cup matta rice", "Cook vegetables in tomato-spice gravy with little oil, no butter or ketchup. Sear paneer and serve with rice.", "~430 kcal · ~29g protein"], ["Mains & bowls", "Vegetable bhaji with chickpeas & paneer", "1 cup mashed mixed vegetables; ½ cup chickpeas; 60g low-fat paneer; 1 slice gluten-free sourdough", "Cook bhaji and chickpeas with spices and minimal oil. Top hot bhaji with shredded paneer; serve with toast.", "~460 kcal · ~27g protein"], ["Mains & bowls", "Red curry tofu bake with bok choy", "150g tofu; 1 tbsp red curry paste; 2 tbsp light coconut milk; bok choy; ½ cup shirataki-brown rice mix", "Bake tofu with red curry paste and coconut milk. Stir-fry bok choy with coconut aminos; serve over rice mix.", "~340 kcal · ~23g protein"], ["Sides & sauces", "Tomato-beetroot soup with roasted tofu", "1 tomato; ½ small beetroot; 75g tofu; garlic; spices", "Simmer tomato and beetroot until soft, then blend. Top with small roasted tofu cubes.", "~170 kcal · ~11g protein"], ["Sides & sauces", "Vegetable clear soup", "1½ cups mixed vegetables; ginger; pepper; water or vegetable stock; a little corn (optional)", "Simmer finely chopped vegetables in seasoned stock until just tender.", "~80 kcal · ~3g protein"], ["Sides & sauces", "Beetroot Greek-yogurt dip", "¼ small cooked beetroot; ½ cup Greek yogurt; cumin; lemon; salt", "Blend or finely grate beetroot into yogurt; season with cumin and lemon.", "~100 kcal · ~9g protein"], ["Sides & sauces", "Green coriander-mint chutney", "Coriander; mint; lemon; green chilli; water; salt", "Blend herbs with lemon and just enough water to spoon. No added sugar.", "~20 kcal · ~1g protein per 2 tbsp"], ["Sides & sauces", "Chimichurri", "Parsley; coriander; garlic; vinegar or lemon; chilli; 1 tsp olive oil", "Finely chop herbs and garlic, then mix with acid, chilli and oil.", "~55 kcal · ~1g protein per 2 tbsp"], ["Sides & sauces", "Peri-peri Greek-yogurt sauce", "¼ cup Greek yogurt; peri-peri seasoning; lemon", "Stir seasoning and lemon into yogurt. Chill before serving.", "~50 kcal · ~5g protein"], ["Sides & sauces", "Yogurt-nut sauce", "¼ cup Greek yogurt; 1 tsp ground nuts; lemon; cumin; water", "Whisk yogurt with nuts and seasonings; thin to drizzling consistency.", "~80 kcal · ~5g protein"], ["Sides & sauces", "Loaded vegetable raita", "½ cup Greek yogurt; cucumber; tomato; roasted cumin; salt", "Fold chopped vegetables and cumin into yogurt. Do not add sugar.", "~100 kcal · ~9g protein"], ["Snacks & dessert", "Charvi's chocolate avocado mousse", "100g Greek yogurt; ¼ small avocado; 1 tsp cocoa; vanilla; pinch of salt; optional monk fruit, stevia or ½ date", "Blend until creamy and chill. Sweeten only if needed; date adds calories and sugar.", "~155 kcal · ~10g protein (without sweetener)"], ["Snacks & dessert", "Crunchy edamame snack", "⅓ cup dry-roasted edamame; 1 kiwi", "Serve roasted edamame with sliced kiwi.", "~190 kcal · ~15g protein"], ["Snacks & dessert", "Mixed nut & seed ladoo", "1 tbsp mixed nuts; 1 tbsp seeds; ½ small date; cardamom", "Pulse ingredients and press into one small ladoo; serve with a mandarin if desired.", "~125 kcal · ~4g protein per ladoo"], ["Snacks & dessert", "Cucumber, carrot & hummus", "Cucumber and carrot sticks; 3 tbsp hummus", "Slice vegetables into sticks; serve with hummus.", "~115 kcal · ~4g protein"]];
+  const recipeGroups = document.getElementById('recipe-groups');
+  const recipeIndex = document.getElementById('recipe-index');
+  [...new Set(RECIPES.map(recipe => recipe[0]))].forEach((category, i) => {
+    const group = document.createElement('div'); group.className = 'recipe-group'; group.id = `recipe-group-${i}`;
+    const heading = document.createElement('h3'); heading.textContent = category; group.appendChild(heading);
+    const jump = document.createElement('a'); jump.href = `#${group.id}`; jump.textContent = category; recipeIndex.appendChild(jump);
+    RECIPES.filter(recipe => recipe[0] === category).forEach(([, name, ingredients, method, nutrition]) => {
+      const card = document.createElement('details'); card.className = 'recipe-card';
+      const summary = document.createElement('summary');
+      const labels = document.createElement('span');
+      const title = document.createElement('span'); title.className = 'recipe-title'; title.textContent = name;
+      const nutri = document.createElement('span'); nutri.className = 'recipe-nutrition'; nutri.textContent = nutrition;
+      labels.append(title, nutri); summary.appendChild(labels);
+      const body = document.createElement('div'); body.className = 'recipe-body';
+      const parts = document.createElement('p'); const strong = document.createElement('strong'); strong.textContent = 'Ingredients: ';
+      parts.append(strong, document.createTextNode(ingredients));
+      const steps = document.createElement('p'); const methodLabel = document.createElement('strong'); methodLabel.textContent = 'Method: ';
+      steps.append(methodLabel, document.createTextNode(method)); body.append(parts, steps); card.append(summary, body); group.appendChild(card);
+    });
+    recipeGroups.appendChild(group);
+  });
+
   // --- Tabs: one per tab-panel section, built automatically ---
   const panels = [...document.querySelectorAll('section.tab-panel')];
   const tabsBar = document.getElementById('day-tabs');
@@ -539,7 +600,7 @@
     tab.type = 'button';
     tab.id = `tab-${panel.id}`;
     tab.setAttribute('role', 'tab');
-    tab.textContent = panel.classList.contains('dishes-panel') ? 'Dishes' : shortLabel(heading.textContent.trim());
+    tab.textContent = panel.classList.contains('dishes-panel') ? 'Dishes' : panel.classList.contains('recipes-panel') ? 'Recipes' : shortLabel(heading.textContent.trim());
     tab.setAttribute('aria-controls', panel.id);
     tab.addEventListener('click', () => activate(index));
     tab.addEventListener('keydown', event => {
@@ -558,6 +619,19 @@
     tabsBar.hidden = false;
     activate(0);
   }
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuPanel = document.getElementById('menu-panel');
+  const closeMenu = () => { menuPanel.hidden = true; menuToggle.setAttribute('aria-expanded', 'false'); };
+  menuToggle.addEventListener('click', () => { const open = menuPanel.hidden; menuPanel.hidden = !open; menuToggle.setAttribute('aria-expanded', String(open)); });
+  menuPanel.addEventListener('click', event => {
+    const target = event.target.closest('button[data-target]'); if (!target) return;
+    const index = target.dataset.target === 'latest' ? panels.findIndex(p => p.classList.contains('day')) : panels.findIndex(p => p.classList.contains(target.dataset.target + '-panel'));
+    if (index !== -1) { activate(index); tabs[index].scrollIntoView({block:'nearest', inline:'nearest'}); }
+    closeMenu();
+  });
+  document.addEventListener('click', event => { if (!event.target.closest('.menu-wrap')) closeMenu(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+
 })();
 </script>
 </body>
