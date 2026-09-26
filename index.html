@@ -108,6 +108,9 @@
   .recipe-body { padding:0 16px 16px; border-top:1px solid var(--line); }
   .recipe-body p { margin:12px 0 0; font-size:.93rem; }
   @media (max-width:600px) { .recipe-card summary { padding:14px; } .menu-panel { right:0; } }
+  .owner-tabs { display:flex; gap:8px; padding:14px 38px 0; }
+  .owner-tabs button { border:1px solid var(--line); border-radius:999px; padding:8px 16px; background:#fff; cursor:pointer; font-weight:700; }
+  .owner-tabs button[aria-selected="true"] { background:var(--green); color:#fff; }
 </style>
 </head>
 <body>
@@ -147,6 +150,8 @@
     </div>
   </section>
 
+  <div class="owner-tabs" role="tablist" aria-label="Food log owner"><button type="button" id="owner-tab-pratik" role="tab" aria-selected="true" aria-controls="owner-pratik">Pratik</button><button type="button" id="owner-tab-sakshi" role="tab" aria-selected="false" aria-controls="owner-sakshi">Sakshi</button></div>
+  <div id="owner-pratik" class="owner-panel" role="tabpanel" aria-labelledby="owner-tab-pratik">
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
@@ -157,11 +162,15 @@
       <li class="entry" data-dish="dish-boiled-eggs"><div class="time">10:20 AM</div><div class="entry-body"><p class="item">Boiled eggs, 3</p><p class="estimate">Estimate: ~19g protein, ~216 kcal, ~1g sugar</p><figure><img src="assets/1-1-sep-26-boiled-eggs.jpg" alt="Three boiled eggs, peeled and halved, in a white bowl"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
       <li class="entry" data-dish="dish-sunny-hills-pineapple-cake"><div class="time">12:00 PM</div><div class="entry-body"><p class="item">Pineapple cake, 1 slice</p><p class="estimate">Estimate: ~3g protein, ~280 kcal, ~28g sugar</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
       <li class="entry" data-dish="dish-green-goddess-tikki-kachumbar-peri-peri-yogurt-wrap"><div class="time">1:00 PM</div><div class="entry-body"><p class="item">Lunch (today's menu): Green Goddess tikkis x5 + kachumbar salad + peri peri Greek yoghurt + 1 Gobbleright beetroot quinoa wrap</p><p class="estimate">Estimate: ~26g protein, ~580 kcal, ~9g sugar</p><figure><img src="assets/2-1-sep-26-green-goddess-tikkis.jpg" alt="Five green goddess tikkis on a white plate with green chutney"></figure><figure><img src="assets/3-2-sep-26-beetroot-quinoa-wrap.jpg" alt="Beetroot quinoa wrap with a piece of tikki, cucumber kachumbar salad, peri peri yoghurt and chutney"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-millet-amma-jeera-bhakri"><div class="time">3:44 PM</div><div class="entry-body"><p class="item">Millet Amma Jeera Bhakri (baked), 3 slices</p><p class="estimate">Label: 5.5g protein, 276 kcal, ~0.2g sugar (3 slices; scaled from 2-piece serving on package)</p><figure><img src="assets/1-sep-26-millet-amma-jeera-bhakri.jpg" alt="Millet Amma baked jeera bhakri package"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-honey-ginger-matcha-latte"><div class="time">4:05 PM</div><div class="entry-body"><p class="item">Honey ginger matcha latte, Kongsi Tea Bar</p><p class="estimate">Estimate: ~4g protein, ~120 kcal, ~16g sugar (±15%)</p><figure><img src="assets/2-sep-26-honey-ginger-matcha.jpg" alt="Honey ginger matcha latte in a glass cup at Kongsi Tea Bar"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-basil-alphonso-mango-protein-lassi"><div class="time">5:05 PM</div><div class="entry-body"><p class="item">Alphonso Mango Protein Lassi, Basil (The Marketplace, RMZ Ecoworld)</p><p class="estimate">178 kcal (Basil menu); estimate: ~19g protein, ~27g sugar (±15%)</p><p class="note">Basil's listed ingredients: frozen Alphonso mango, curd, whey protein, jaggery and honey.</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
+      <li class="entry" data-dish="dish-red-curry-tofu-bake-sauteed-greens-rice"><div class="time">6:30 PM</div><div class="entry-body"><p class="item">Dinner (today's menu): Red curry tofu bake + sauteed greens + small cup of rice</p><p class="estimate">Estimate: ~22g protein, ~500 kcal, ~9g sugar (±15%)</p><figure><img src="assets/3-sep-26-red-curry-tofu-dinner.jpg" alt="Red curry tofu bake with sauteed greens and rice"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">👎</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">👍</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">👍👍</button></div></div></li>
     </ol>
     <div class="totals-block" aria-labelledby="sep-26-totals-heading">
       <h2 id="sep-26-totals-heading">Estimated totals</h2>
       <div class="totals">
-        <div class="total"><strong>Day total</strong><span>~72g protein, ~1,214 kcal, ~39g sugar</span></div>
+        <div class="total"><strong>Day total</strong><span>~122g protein, ~2,290 kcal, ~91g sugar</span></div>
       </div>
     </div>
   </section>
@@ -388,6 +397,8 @@
     <div id="recipe-groups"></div>
   </section>
 
+  </div>
+  <section id="owner-sakshi" class="owner-panel" role="tabpanel" aria-labelledby="owner-tab-sakshi" hidden><h2>Sakshi's food log</h2><p class="note">No meals logged yet.</p></section>
   <footer>Food and nutrition estimates are approximate.</footer>
 </main>
 
@@ -439,6 +450,10 @@
   // Canonical dish registry: one stable key per dish, shared across every day it appears on.
   // New dish? Add a line here, then use its key as data-dish on the day's entry.
   const DISHES = {
+    'dish-millet-amma-jeera-bhakri': 'Millet Amma baked jeera bhakri (3 slices)',
+    'dish-honey-ginger-matcha-latte': 'Honey ginger matcha latte (Kongsi Tea Bar)',
+    'dish-basil-alphonso-mango-protein-lassi': 'Alphonso Mango Protein Lassi (Basil)',
+    'dish-red-curry-tofu-bake-sauteed-greens-rice': 'Red curry tofu bake with sauteed greens and rice',
     'dish-green-goddess-tikki-kachumbar-peri-peri-yogurt-wrap': 'Green Goddess tikkis with kachumbar salad, peri peri Greek yoghurt and beetroot quinoa wrap',
     'dish-charvi-chocolate-avocado-mousse': "Charvi's chocolate avocado mousse",
     'dish-vegetable-bhaji-chickpea-paneer-gluten-free-bread': 'Vegetable bhaji with chickpeas & paneer, gluten-free bread (3 slices)',
@@ -652,6 +667,12 @@
   });
   document.addEventListener('click', event => { if (!event.target.closest('.menu-wrap')) closeMenu(); });
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+  const ownerTabs = [...document.querySelectorAll('.owner-tabs [role="tab"]')];
+  const ownerPanels = [...document.querySelectorAll('.owner-panel')];
+  ownerTabs.forEach((tab, i) => tab.addEventListener('click', () => {
+    ownerTabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+    ownerPanels.forEach((panel, j) => panel.hidden = i !== j);
+  }));
 
 })();
 </script>
