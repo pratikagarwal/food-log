@@ -155,6 +155,20 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+  <section class="day tab-panel" aria-labelledby="oct-1-heading">
+    <h2 id="oct-1-heading">Thursday, October 1, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-cosmix-cacao"><div class="time">~2:20 PM</div><div class="entry-body"><p class="item">Cosmix protein shake, 1 scoop (38g), at Mumbai airport</p><p class="estimate">Estimate: ~24g protein, ~138 kcal, ~1g sugar</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+      <li class="entry" data-dish="dish-masala-uttapam"><div class="time">~2:20 PM</div><div class="entry-body"><p class="item">Lunch (airport instead of the Thursday meal plan chickpea-paneer wrap): masala uttapam, 1 serving (with the usual sambar and chutney)</p><p class="estimate">Estimate: ~9g protein, ~380 kcal, ~5g sugar (&plusmn;15%; assumes one large uttapam with potato masala, sambar and coconut chutney; portion and oil not seen)</p><p class="note">No photo provided for this entry.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+    </ol>
+    <div class="totals-block" aria-labelledby="oct-1-totals-heading">
+      <h2 id="oct-1-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~33g protein, ~518 kcal, ~6g sugar</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="day tab-panel" aria-labelledby="sep-30-heading">
     <h2 id="sep-30-heading">Wednesday, September 30, 2026</h2>
     <ol class="entries">
@@ -607,6 +621,7 @@
     'dish-matcha-latte-smoor': 'Hot matcha latte (Smoor)',
     'dish-paper-boat-mixed-nuts-pepper': 'Paper Boat Mixed Nuts with Pepper (50g pack)',
     'dish-kulfi': 'Kulfi (1 serving)',
+    'dish-masala-uttapam': 'Masala uttapam (1 serving)',
     'dish-chana-makhana-salad': 'Creamy crunchy chana-makhana salad (roasted makhana)',
     'dish-tomato-beet-soup-tofu': 'Tomato-beetroot soup with roasted tofu cubes',
     'dish-egg-whites-black-pepper-cosmix-yeast': 'Boiled egg whites with black pepper + Cosmix fermented yeast protein',
