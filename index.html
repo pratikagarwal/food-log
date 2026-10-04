@@ -155,6 +155,20 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+  <section class="day tab-panel" aria-labelledby="oct-4-heading">
+    <h2 id="oct-4-heading">Sunday, October 4, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-small-pizza"><div class="time">After midnight</div><div class="entry-body"><p class="item">Late night: a small pizza</p><p class="estimate">Estimate: ~16g protein, ~400 kcal, ~5g sugar (&plusmn;15%; assumes a personal ~7-inch cheese/veg pizza, ~150g; type and size not stated)</p><p class="note">No photo provided for this entry. Reported at 10:30 AM on Oct 4 as &quot;last night, after midnight&quot;; exact time not stated.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+      <li class="entry" data-dish="dish-small-cake"><div class="time">After midnight</div><div class="entry-body"><p class="item">Late night (continued): a small cake</p><p class="estimate">Estimate: ~4g protein, ~300 kcal, ~28g sugar (&plusmn;15%; assumes one ~80g slice or pastry-sized cake; type and size not stated)</p><p class="note">No photo provided for this entry. Reported at 10:30 AM on Oct 4 as &quot;last night, after midnight&quot;; exact time not stated.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+    </ol>
+    <div class="totals-block" aria-labelledby="oct-4-totals-heading">
+      <h2 id="oct-4-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~20g protein, ~700 kcal, ~33g sugar</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="day tab-panel" aria-labelledby="oct-3-heading">
     <h2 id="oct-3-heading">Saturday, October 3, 2026</h2>
     <ol class="entries">
@@ -665,6 +679,8 @@
     'dish-paper-boat-mixed-nuts-pepper': 'Paper Boat Mixed Nuts with Pepper (50g pack)',
     'dish-kulfi': 'Kulfi (1 serving)',
     'dish-masala-uttapam': 'Masala uttapam (1 serving)',
+    'dish-small-pizza': 'Small pizza',
+    'dish-small-cake': 'Small cake',
     'dish-lick-ice-cream-cookie': 'LICK Raspberry Cheesecake scoop and Hallelujah cookie',
     'dish-date-cocoa-smoothie': 'Date and cocoa smoothie',
     'dish-mexican-quinoa-paneer-bowl': 'Mexican Quinoa, Veggies, Beans and Low-Fat Paneer Bowl',
