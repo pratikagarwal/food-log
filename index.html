@@ -155,6 +155,19 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+  <section class="day tab-panel" aria-labelledby="oct-5-heading">
+    <h2 id="oct-5-heading">Monday, October 5, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-moong-paneer-tikkis-grilled-veg"><div class="time">12:28 PM</div><div class="entry-body"><p class="item">Lunch (meal plan: yellow moong dal, sprouts and paneer tikkis with pan roasted masala grilled veggies): 4 golden tikkis with roasted peppers, cauliflower and mushroom</p><p class="estimate">Estimate: ~27g protein, ~540 kcal, ~9g sugar (&plusmn;15%; 4 tikkis of ~60g each, ~110 kcal / 6g protein apiece, pan-cooked with little oil; ~150g roasted veggies ~100 kcal / 3g protein / 8g sugar; no dip or sauce visible; one tikki is partly eaten, so counted as a whole)</p><figure><img src="assets/1-oct-5-moong-paneer-tikkis.jpg" alt="Plate of four golden moong dal and paneer tikkis with roasted red and yellow peppers, cauliflower and mushroom"></figure><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+    </ol>
+    <div class="totals-block" aria-labelledby="oct-5-totals-heading">
+      <h2 id="oct-5-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~27g protein, ~540 kcal, ~9g sugar</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="day tab-panel" aria-labelledby="oct-4-heading">
     <h2 id="oct-4-heading">Sunday, October 4, 2026</h2>
     <ol class="entries">
@@ -684,6 +697,7 @@
     'dish-paper-boat-mixed-nuts-pepper': 'Paper Boat Mixed Nuts with Pepper (50g pack)',
     'dish-kulfi': 'Kulfi (1 serving)',
     'dish-masala-uttapam': 'Masala uttapam (1 serving)',
+    'dish-moong-paneer-tikkis-grilled-veg': 'Moong dal and paneer tikkis with grilled veggies',
     'dish-burma-burma-dinner': 'Burma Burma salad, half tofu soup and wild mushroom rice',
     'dish-lavonne-turmeric-matcha-latte': 'Lavonne turmeric matcha latte',
     'dish-pomegranate-arils': 'Pomegranate arils (~150g)',
