@@ -1,71 +1,71 @@
 {
-  "generated": "2026-10-07T09:39:27+05:30",
-  "timezone": "Asia/Kolkata",
-  "note": "Estimates (about +/-15%), rounded; Pratik's tab only; days with no log show entries 0",
-  "today": {
-    "date": "2026-10-07",
-    "calories": 138,
-    "protein_g": 24,
-    "sugar_g": 1,
-    "entries": 1,
-    "last_updated": "2026-10-07T09:34:50+05:30"
-  },
-  "days": [
-    {
-      "date": "2026-10-07",
-      "calories": 138,
-      "protein_g": 24,
-      "sugar_g": 1,
-      "entries": 1,
-      "last_updated": "2026-10-07T09:34:50+05:30"
+    "generated": "2026-10-07T09:39:27+05:30",
+    "timezone": "Asia/Kolkata",
+    "note": "Estimates (about +/-15%), rounded; Pratik's tab only; days with no log show entries 0",
+    "today": {
+        "date": "2026-10-07",
+        "calories": 138,
+        "protein_g": 24,
+        "sugar_g": 1,
+        "entries": 1,
+        "last_updated": "2026-10-07T09:34:50+05:30"
     },
-    {
-      "date": "2026-10-06",
-      "calories": 1825,
-      "protein_g": 91,
-      "sugar_g": 101,
-      "entries": 8,
-      "last_updated": "2026-10-07T09:39:27+05:30"
-    },
-    {
-      "date": "2026-10-05",
-      "calories": 1923,
-      "protein_g": 114,
-      "sugar_g": 85,
-      "entries": 11,
-      "last_updated": "2026-10-05T20:48:32+05:30"
-    },
-    {
-      "date": "2026-10-04",
-      "calories": 2605,
-      "protein_g": 87,
-      "sugar_g": 72,
-      "entries": 7,
-      "last_updated": "2026-10-04T19:29:05+05:30"
-    },
-    {
-      "date": "2026-10-03",
-      "calories": 2014,
-      "protein_g": 115,
-      "sugar_g": 95,
-      "entries": 7,
-      "last_updated": "2026-10-03T21:42:56+05:30"
-    },
-    {
-      "date": "2026-10-02",
-      "calories": 2116,
-      "protein_g": 132,
-      "sugar_g": 51,
-      "entries": 9,
-      "last_updated": "2026-10-02T18:54:49+05:30"
-    },
-    {
-      "date": "2026-10-01",
-      "calories": 1283,
-      "protein_g": 62,
-      "sugar_g": 23,
-      "entries": 5,
-      "last_updated": "2026-10-01T19:43:09+05:30"
-    }
-  ]
+    "days": [
+        {
+            "date": "2026-10-07",
+            "calories": 138,
+            "protein_g": 24,
+            "sugar_g": 1,
+            "entries": 1,
+            "last_updated": "2026-10-07T09:34:50+05:30"
+        },
+        {
+            "date": "2026-10-06",
+            "calories": 1825,
+            "protein_g": 91,
+            "sugar_g": 101,
+            "entries": 8,
+            "last_updated": "2026-10-07T09:39:27+05:30"
+        },
+        {
+            "date": "2026-10-05",
+            "calories": 1923,
+            "protein_g": 114,
+            "sugar_g": 85,
+            "entries": 11,
+            "last_updated": "2026-10-05T20:48:32+05:30"
+        },
+        {
+            "date": "2026-10-04",
+            "calories": 2605,
+            "protein_g": 87,
+            "sugar_g": 72,
+            "entries": 7,
+            "last_updated": "2026-10-04T19:29:05+05:30"
+        },
+        {
+            "date": "2026-10-03",
+            "calories": 2014,
+            "protein_g": 115,
+            "sugar_g": 95,
+            "entries": 7,
+            "last_updated": "2026-10-03T21:42:56+05:30"
+        },
+        {
+            "date": "2026-10-02",
+            "calories": 2116,
+            "protein_g": 132,
+            "sugar_g": 51,
+            "entries": 9,
+            "last_updated": "2026-10-02T18:54:49+05:30"
+        },
+        {
+            "date": "2026-10-01",
+            "calories": 1283,
+            "protein_g": 62,
+            "sugar_g": 23,
+            "entries": 5,
+            "last_updated": "2026-10-01T19:43:09+05:30"
+        }
+    ]
 }
