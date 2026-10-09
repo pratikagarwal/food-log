@@ -1,23 +1,23 @@
 {
-    "generated": "2026-10-09T12:03:41+05:30",
+    "generated": "2026-10-09T12:04:39+05:30",
     "timezone": "Asia/Kolkata",
     "note": "Estimates (about +/-15%), rounded; Pratik's tab only; days with no log show entries 0",
     "today": {
         "date": "2026-10-09",
-        "calories": 628,
-        "protein_g": 52,
-        "sugar_g": 7,
+        "calories": 828,
+        "protein_g": 60,
+        "sugar_g": 10,
         "entries": 2,
-        "last_updated": "2026-10-09T12:03:41+05:30"
+        "last_updated": "2026-10-09T12:04:39+05:30"
     },
     "days": [
         {
             "date": "2026-10-09",
-            "calories": 628,
-            "protein_g": 52,
-            "sugar_g": 7,
+            "calories": 828,
+            "protein_g": 60,
+            "sugar_g": 10,
             "entries": 2,
-            "last_updated": "2026-10-09T12:03:41+05:30"
+            "last_updated": "2026-10-09T12:04:39+05:30"
         },
         {
             "date": "2026-10-08",
