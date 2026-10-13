@@ -4,19 +4,19 @@
   "note": "Estimates (about +/-15%), rounded; Pratik's tab only; days with no log show entries 0",
   "today": {
     "date": "2026-10-13",
-    "calories": 752,
-    "protein_g": 58,
-    "sugar_g": 7,
-    "entries": 3,
+    "calories": 890,
+    "protein_g": 82,
+    "sugar_g": 8,
+    "entries": 4,
     "last_updated": "2026-10-13T13:25:00+05:30"
   },
   "days": [
     {
       "date": "2026-10-13",
-      "calories": 752,
-      "protein_g": 58,
-      "sugar_g": 7,
-      "entries": 3,
+      "calories": 890,
+      "protein_g": 82,
+      "sugar_g": 8,
+      "entries": 4,
       "last_updated": "2026-10-13T13:25:00+05:30"
     },
     {
