@@ -155,6 +155,19 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+        <section class="day tab-panel" aria-labelledby="oct-26-heading">
+    <h2 id="oct-26-heading">Monday, October 26, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-iced-matcha-latte"><div class="time">Morning</div><div class="entry-body"><p class="item">Iced matcha latte</p><p class="estimate">Estimate: ~9g protein, ~150 kcal, ~15g sugar (&plusmn;30%; tall glass, roughly 12 oz milk - 2% dairy assumed; unsweetened per his standing matcha order, not confirmed for this drink; the sugar is milk lactose)</p><figure><img data-photo="oct26-1" alt="Tall glass of iced matcha latte with a foam top and black straw on a green marble cafe table"></figure><p class="note">Photo + caption &quot;Iced matcha&quot; at 10:08 PM IST (= about 9:40 AM in California, where he is traveling - a morning drink, logged as Morning). Visibly an iced matcha latte; the venue is not identifiable from the photo. Milk type not stated: 2% dairy assumed - oat milk would be similar calories with ~5g less protein. No added sugar assumed from his standing caf&eacute;-matcha preference (set by one earlier correction, Sep 30, and not re-confirmed for this drink); if the caf&eacute; sweetened it, add roughly 15-20g sugar. No written meal plan while traveling.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+</ol>
+    <div class="totals-block" aria-labelledby="oct-26-totals-heading">
+      <h2 id="oct-26-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~9g protein, ~150 kcal, ~15g sugar</span></div>
+      </div>
+    </div>
+  </section>
+
         <section class="day tab-panel" aria-labelledby="oct-25-heading">
     <h2 id="oct-25-heading">Sunday, October 25, 2026</h2>
     <ol class="entries">
@@ -1083,6 +1096,7 @@
     'dish-gobhi-paratha-moong-dal-suji-halwa': 'Emirates breakfast: gobhi paratha, moong dal & suji halwa',
     'dish-flight-kofta-curry-rice': 'Kofta curry with rice and peas (in-flight)',
     'dish-miami-airport-breakfast-sbux-oikos-corepower': 'Miami airport breakfast: Starbucks egg pesto mozzarella sandwich, Oikos yogurt, Core Power shake',
+    'dish-iced-matcha-latte': 'Iced matcha latte (unsweetened)',
     'dish-local-ferment-kombucha': 'Local Ferment Co kombucha (250 ml)',
     'dish-indigo-bhatti-paneer-salad': 'IndiGo Bhatti Paneer Salad (128g pack)',
     'dish-chana-makhana-salad': 'Creamy crunchy chana-makhana salad (roasted makhana)',
