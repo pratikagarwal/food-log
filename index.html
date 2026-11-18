@@ -155,6 +155,19 @@
   <!-- Tabs build themselves from the tab-panel sections below. New day? Copy a section.day block, give its h2 a unique id ending in -heading, and tag each entry with its dish key from the DISHES registry in the script. The tab appears automatically. -->
   <div class="tabs" id="day-tabs" role="tablist" aria-label="Food log sections" hidden></div>
 
+        <section class="day tab-panel" aria-labelledby="nov-18-heading">
+    <h2 id="nov-18-heading">Wednesday, November 18, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-cosmix-cacao"><div class="time">11:06 AM</div><div class="entry-body"><p class="item">Cosmix protein shake, 1 scoop (38g)</p><p class="estimate">Label: ~24g protein, ~142 kcal, ~3g sugar (per 1 scoop, 38g; label 141.74 kcal, 23.7g protein, 3.2g sugar, 0g added sugar)</p><p class="note">No photo. Pratik reported &quot;Had my daily Cosmix&quot; on WhatsApp at 11:06 AM IST on Nov 18; the message time is used, exact consumption time not stated. Amount not stated: usual 1 scoop (38g) in water assumed. Logged from the standing fixed recipe: No-Nonsense Fermented Yeast Protein, Indonesian Cacao, label on cosmix.in.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+      <li class="entry" data-dish="dish-lavonne-avocado-toast-3-eggs"><div class="time">11:06 AM</div><div class="entry-body"><p class="item">Avocado toast with 3 eggs (Lavonne)</p><p class="estimate">Estimate: ~26g protein, ~485 kcal, ~3g sugar (&plusmn;25%; assumed 1 sourdough slice ~150 kcal/~5.5g protein, about half an avocado ~120 kcal/~1.5g protein, 3 large eggs ~215 kcal/~19g protein/~1g sugar)</p><p class="note">No photo. Pratik reported &quot;Lavonne 3 egg avocado toast&quot; on WhatsApp at 11:06 AM IST on Nov 18; the message time is used, exact consumption time not stated. Three eggs is his explicit count. Egg preparation (poached/fried/scrambled), bread type and slice count, and avocado amount were not stated: portions follow his corrected Oct 26 avocado toast baseline (1 sourdough slice, about half an avocado, 3 large eggs). Eggs counted plain with no butter or oil; cafe preparation may add fat not counted here.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+</ol>
+    <div class="totals-block" aria-labelledby="nov-18-totals-heading">
+      <h2 id="nov-18-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~50g protein, ~627 kcal, ~6g sugar</span></div>
+      </div>
+    </div>
+  </section>
         <section class="day tab-panel" aria-labelledby="nov-17-heading">
     <h2 id="nov-17-heading">Tuesday, November 17, 2026</h2>
     <ol class="entries">
@@ -1059,6 +1072,7 @@
   // Canonical dish registry: one stable key per dish, shared across every day it appears on.
   // New dish? Add a line here, then use its key as data-dish on the day's entry.
   const DISHES = {
+    'dish-lavonne-avocado-toast-3-eggs': 'Avocado toast with 3 eggs (Lavonne)',
     'dish-cinnamon-oat-matcha': 'Cinnamon hot matcha with oat milk',
     'dish-millet-amma-jeera-bhakri': 'Millet Amma baked jeera bhakri (3 slices)',
     'dish-honey-ginger-matcha-latte': 'Honey ginger matcha latte (Kongsi Tea Bar)',
