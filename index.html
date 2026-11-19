@@ -957,6 +957,18 @@
   </div>
   <section id="owner-sakshi" class="owner-panel" role="tabpanel" aria-labelledby="owner-tab-sakshi" hidden>
   <h2>Sakshi's food log</h2>
+  <section aria-labelledby="sakshi-nov-19-heading">
+    <h2 id="sakshi-nov-19-heading">Thursday, November 19, 2026</h2>
+    <ol class="entries">
+      <li class="entry" data-dish="dish-paneer-quinoa-veg-curd"><div class="time">12:55 PM</div><div class="entry-body"><p class="item">Lunch: high-protein low-fat paneer quinoa with broccoli, beans, green peas and cherry tomatoes (~1.25 cups of the mixture), plus thick curd/raita (~3/4 cup)</p><p class="estimate">Estimate: ~30g protein, ~580 kcal, ~11g sugar (rough visual estimate from Sakshi&#39;s Instinct, not measured)</p><figure><img data-photo="sakshi-nov19-1" alt="White bowl of quinoa cooked with broccoli, green peas, cherry tomatoes, beans and paneer cubes, next to a square bowl of thick curd with a spoon, on a white tray"></figure><p class="note">Photo and description sent by Sakshi&#39;s Instinct at 12:58 PM IST on Nov 19; eaten about 12:55 PM. Matched to her weekly-plan lunch: high-protein low-fat paneer quinoa (plan reference 1/2 cup cooked quinoa, 120g paneer, vegetables); her Instinct&#39;s visual portion is about 1.25 cups of the mixture plus about 3/4 cup thick curd/raita. Numbers are her Instinct&#39;s rough visual estimate, not measured, published as reported.</p><div class="rating" role="group" aria-label="Rate this meal"><button type="button" data-rating="down" aria-label="Thumbs down" aria-pressed="false">&#128078;</button><button type="button" data-rating="up" aria-label="Thumbs up" aria-pressed="false">&#128077;</button><button type="button" data-rating="double-up" aria-label="Double thumbs up" aria-pressed="false">&#128077;&#128077;</button></div></div></li>
+    </ol>
+    <div class="totals-block" aria-labelledby="sakshi-nov-19-totals-heading">
+      <h2 id="sakshi-nov-19-totals-heading">Estimated totals</h2>
+      <div class="totals">
+        <div class="total"><strong>Day total</strong><span>~30g protein, ~580 kcal, ~11g sugar</span></div>
+      </div>
+    </div>
+  </section>
   <section aria-labelledby="sakshi-nov-18-heading">
     <h2 id="sakshi-nov-18-heading">Wednesday, November 18, 2026</h2>
     <ol class="entries">
@@ -1084,6 +1096,7 @@
   // Canonical dish registry: one stable key per dish, shared across every day it appears on.
   // New dish? Add a line here, then use its key as data-dish on the day's entry.
   const DISHES = {
+    'dish-paneer-quinoa-veg-curd': 'Paneer quinoa with vegetables and curd',
     'dish-tofu-masala-methi-moong-ragi-roti': 'Tofu masala, methi moong dal sabzi, ragi roti, mangodi gravy and beetroot',
     'dish-lavonne-avocado-toast-3-eggs': 'Avocado toast with 3 eggs (Lavonne)',
     'dish-cinnamon-oat-matcha': 'Cinnamon hot matcha with oat milk',
